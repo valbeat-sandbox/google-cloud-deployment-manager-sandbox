@@ -1,0 +1,13 @@
+imports:
+- path: vm-template.jinja
+- path: vm-template-2.jinja
+
+resources:
+- name: vm-1
+  type: vm-template.jinja
+- name: vm-2
+  type: vm-template-2.jinja
+- name: newtwork-1
+  type: network-template.jinja
+- name: firewall
+  type: firewall-template.jinja

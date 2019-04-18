@@ -1,0 +1,18 @@
+resources:
+- name: the-second-vm
+  type: compute.v1.instance
+  properties:
+    zone: us-central1-f
+    machineType: https://www.googleapis.com/compute/v1/projects/<PROJECT_ID>/zones/us-central1-f/machineTypes/g1-small
+    disks:
+    - deviceName: boot
+      type: PERSISTENT
+      boot: true
+      autoDelete: true
+      initializeParams:
+        sourceImage: https://www.googleapis.com/compute/v1/projects/debian-cloud/global/images/debian-9-stretch-v20181210
+    networkInterfaces:
+    - network: $(ref.a-new-network.selfLink)
+      accessConfigs:
+      - name: External NAT
+        type: ONE_TO_ONE_NAT
